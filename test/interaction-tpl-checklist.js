@@ -42,9 +42,11 @@ const target = path.resolve(__dirname, "..", "hr", "template.html");
 
 (async () => {
   try {
-    // tpl_sales: goalsEnabled=false из коробки, контрольные точки не предзаполнены —
-    // список стартует пустым, симметрично блоку "Цели".
-    const w = loadPage(target, "tpl=tpl_sales");
+    // tpl_support (пребординг): goalsEnabled=false из коробки, контрольные точки
+    // не предзаполнены — список стартует пустым, симметрично блоку "Цели".
+    // В основном шаблоне сети (tpl_sales) цели включены: адаптация агента строится
+    // на целях, а не на чек-листе, поэтому проверяем выключенное состояние здесь.
+    const w = loadPage(target, "tpl=tpl_support");
     await tick(150);
     let body = w.document.body.textContent;
     console.log("Goals section is default:", body.includes("Цели адаптации") ? "PASS" : "FAIL");
