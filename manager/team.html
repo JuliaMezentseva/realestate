@@ -60,8 +60,11 @@ function employeePlanProgress(m) {
   if (m.progressPct !== null) return m.progressPct;
   const plan = D.plans[m.planId];
   if (!plan) return 0;
-  const goalsDone = plan.goals.filter(g => g.subgoals.length && g.subgoals.every(s => s.status === "done")).length;
-  return plan.goals.length ? Math.round((goalsDone / plan.goals.length) * 100) : 0;
+  // Прогресс по целям — по промежуточным результатам, а не по числу закрытых целей:
+  // целей мало и они крупные, счёт по целям давал бы 0 весь первый месяц.
+  const done = plan.goals.reduce((n, g) => n + g.subgoals.filter(s => s.status === "done").length, 0);
+  const total = plan.goals.reduce((n, g) => n + g.subgoals.length, 0);
+  return total ? Math.round((done / total) * 100) : 0;
 }
 
 // ---------------- Верхняя неактивная строка разделов портала (кроме "Адаптация" не реализованы в прототипе) ----------------

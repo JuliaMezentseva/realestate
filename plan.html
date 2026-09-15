@@ -752,7 +752,12 @@ function Page() {
   const doneChecklist = totalChecklist.filter((i) => i.done).length;
   const checklistPct = totalChecklist.length ? Math.round((doneChecklist / totalChecklist.length) * 100) : 0;
   const goalsDoneCount = plan.goals.filter((g) => g.subgoals.length && g.subgoals.every((s) => s.status === "done")).length;
-  const goalsPct = plan.goals.length ? Math.round((goalsDoneCount / plan.goals.length) * 100) : 0;
+  // Прогресс по целям считаем по промежуточным результатам, а не по числу полностью
+  // закрытых целей: целей мало и они крупные, поэтому счёт по целям давал шкалу
+  // 0 / 33 / 67 / 100 — сотрудник месяц работает и видит ноль.
+const goalsSubDone = plan.goals.reduce((n, g) => n + g.subgoals.filter((s) => s.status === "done").length, 0);
+  const goalsSubTotal = plan.goals.reduce((n, g) => n + g.subgoals.length, 0);
+  const goalsPct = goalsSubTotal ? Math.round((goalsSubDone / goalsSubTotal) * 100) : 0;
   const overallPct = plan.hasGoals && plan.goals.length ? goalsPct : checklistPct;
 
   const activeSubgoalGoal = subgoalDrawer && plan.goals.find((g) => g.id === subgoalDrawer.goalId);

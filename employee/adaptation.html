@@ -26,8 +26,10 @@ function progressOf(plan) {
     const done = all.filter(i => i.done).length;
     return all.length ? Math.round((done / all.length) * 100) : 0;
   }
-  const goalsDone = plan.goals.filter(g => g.subgoals.length && g.subgoals.every(s => s.status === "done")).length;
-  return plan.goals.length ? Math.round((goalsDone / plan.goals.length) * 100) : 0;
+  // Прогресс по целям — по промежуточным результатам (см. manager/team.html).
+  const done = plan.goals.reduce((n, g) => n + g.subgoals.filter(s => s.status === "done").length, 0);
+  const total = plan.goals.reduce((n, g) => n + g.subgoals.length, 0);
+  return total ? Math.round((done / total) * 100) : 0;
 }
 
 function PlanCard({ plan, clickable = true }) {
