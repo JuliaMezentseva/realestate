@@ -1693,7 +1693,7 @@ function DrawerTabs({ items, active, onChange }) {
   );
 }
 
-const ASSESSMENT_DECISION_LABEL = { done: "Результат достигнут", returned: "На доработке", not_done: "Результат не достигнут" };
+const ASSESSMENT_DECISION_LABEL = { done: "Выполнено", returned: "На доработке", not_done: "Не выполнено" };
 const ASSESSMENT_DECISION_HUE = { done: "positive", returned: "warning", not_done: "negative" };
 
 // ---------------- Содержимое вкладки "История оценок" — только прошлые раунды решений,
@@ -1764,9 +1764,9 @@ function AssessmentModal({ subgoal, onClose, onDecision }) {
           rows={3} maxLength={1000} showCount value={note} onChange={(e) => setNote(e.target.value || "")} />
         <Divider />
         <div className="sk-row sk-gap-2" style={{ flexWrap: "wrap" }}>
-          <Button variant="positive" onClick={() => setPendingAction("done")}>Подтвердить достижение результата</Button>
+          <Button variant="positive" onClick={() => setPendingAction("done")}>Подтвердить выполнение</Button>
           <Button mode="secondary" variant="gray" onClick={() => submit("returned")}>На доработку</Button>
-          <Button variant="negative" mode="secondary" onClick={() => setPendingAction("not_done")}>Результат не достигнут</Button>
+          <Button variant="negative" mode="secondary" onClick={() => setPendingAction("not_done")}>Не выполнено</Button>
         </div>
       </div>
     </Modal>
@@ -1776,8 +1776,8 @@ function AssessmentModal({ subgoal, onClose, onDecision }) {
 // ---------------- Защита от дурака перед финальным (необратимым) решением по шагу —
 // общий шаг подтверждения и для оценочного листа, и для ручного решения без него. ----------------
 const FINAL_DECISION_COPY = {
-  done: { title: "Отметить результат достигнутым?", body: "Результат будет считаться достигнутым. Изменить решение потом будет нельзя.", label: "Да", variant: "positive" },
-  not_done: { title: "Отметить результат недостигнутым?", body: "Результат будет считаться недостигнутым. Изменить решение потом будет нельзя.", label: "Да", variant: "negative" },
+  done: { title: "Подтвердить выполнение?", body: "Результат будет считаться выполненным. Изменить решение потом будет нельзя.", label: "Да", variant: "positive" },
+  not_done: { title: "Отметить невыполненным?", body: "Результат будет считаться невыполненным. Изменить решение потом будет нельзя.", label: "Да", variant: "negative" },
 };
 function FinalDecisionConfirm({ action, onBack, onConfirm }) {
   const c = FINAL_DECISION_COPY[action];
@@ -1886,8 +1886,8 @@ function SubgoalDrawer({ plan, goal, subgoal, onClose, onChange, onOpenChecklist
     : (needsAssessment && isReview) ? <Button size="s" onClick={() => setAssessmentOpen(true)} style={{ background: "var(--sk-warning)", color: "var(--sk-text-contrast)" }}>Оценить выполнение</Button>
     : (isReview && !needsAssessment) ? (
       <div className="sk-row sk-gap-1">
-        <Button size="s" variant="positive" onClick={() => setPendingAction("done")}>Результат достигнут</Button>
-        <Button size="s" variant="negative" mode="secondary" onClick={() => setPendingAction("not_done")}>Результат не достигнут</Button>
+        <Button size="s" variant="positive" onClick={() => setPendingAction("done")}>Подтвердить выполнение</Button>
+        <Button size="s" variant="negative" mode="secondary" onClick={() => setPendingAction("not_done")}>Не выполнено</Button>
         <Button size="s" variant="gray" onClick={onReturn}>На доработку</Button>
       </div>
     )
