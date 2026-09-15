@@ -1142,70 +1142,6 @@ window.SITE_DATA = {
   // ---- Шаблон плана (Редактор адаптации → Шаблоны планов) ----
   window.SITE_DATA.templates = [
     {
-      id: "tpl_reserve_store_director",
-      name: "Наставничество: подготовка наставника",
-      description: "Не ступень карьеры, а роль сверх своей работы: действующий специалист берёт новичка. План превращает наставничество из доброй воли в роль с задачами, сроками и доплатой.",
-      status: "active",
-      planType: "Внутренний переход",
-      durationDays: 30,
-      category: "Адаптация",
-      department: "Учебно-методический центр",
-      function: "Обучение и развитие",
-      company: "ИНКОМ-Недвижимость",
-      author: "Юлия Степанова",
-      createdAt: "20.08.26, 10:15",
-      updatedAt: "20.08.26, 10:15",
-      savedAtLabel: "Сохранено в 10:15",
-      usageCount: 12,
-      goalsEnabled: true,
-      goalsOwner: "hr",
-      goalsDeadlineDays: 7,
-      goalsReviewRequired: false,
-      goalsReviewDeadlineDays: 7,
-      goals: [
-        {
-          id: "rsdgoal1",
-          title: "Освоить инструменты наставника и провести первый разбор",
-          description: "Наставник в агентстве не сидит рядом — он берёт новичка с собой. Задача: научиться учить по ходу собственной работы, без отдельного времени на обучение.",
-          dueDays: 14,
-          subgoals: [
-            { id: "rsdsg1", title: "Пройти курс УМЦ «Наставник: как учить в поле»", description: "", dueDays: 7, reviewer: "Тренер УМЦ", materials: [] },
-            { id: "rsdsg2", title: "Взять новичка на 2 свои встречи и провести разбор по 15 минут после каждой", description: "", dueDays: 10, reviewer: "Руководитель", materials: [] },
-            { id: "rsdsg3", title: "Разобрать 5 звонков подопечного по оценочному листу", description: "", dueDays: 14, reviewer: "Тренер УМЦ", materials: [] },
-          ],
-        },
-        {
-          id: "rsdgoal2",
-          title: "Довести подопечного до первой назначенной встречи",
-          description: "Результат наставника измеряется не потраченными часами, а тем, дошёл ли новичок до первых реальных результатов.",
-          dueDays: 30,
-          subgoals: [
-            { id: "rsdsg4", title: "Подтвердить у подопечного норму активности: 50 контактов", description: "", dueDays: 21, reviewer: "Руководитель", materials: [] },
-            { id: "rsdsg5", title: "Довести подопечного до 3 назначенных встреч с собственниками", description: "", dueDays: 30, reviewer: "Руководитель", materials: [] },
-          ],
-        },
-      ],
-      stats: { tasks: 5, files: 0, links: 1, courses: 1, surveys: 1 },
-      checkpoints: [],
-      participants: [
-        { id: "p1", kind: "system", roleId: "manager", required: true, isPrimary: true, demoPerson: { name: "Анна Козлова", position: "Начальник отдела" } },
-        { id: "p2", kind: "system", roleId: "hrbp", required: true, isPrimary: false, demoPerson: { name: "Юлия Степанова", position: "HR бизнес-партнёр" } },
-        { id: "p3", kind: "system", roleId: "pel", required: true, isPrimary: false, demoPerson: { name: "Елена Петрова", position: "Тренер УМЦ" } },
-        { id: "p4", kind: "business", roleId: "curator", required: false },
-      ],
-      checklistStages: [
-        { id: "cs1", title: "Подготовка наставника" },
-        { id: "cs2", title: "Работа с подопечным" },
-      ],
-      tasks: [
-        { id: "tt1", type: "task", title: "Изучить план адаптации подопечного и свои задачи в нём", stageId: "cs1", assigneeParticipantId: "p3", dueDays: 3, required: true },
-        { id: "tt2", type: "task", title: "Провести знакомство с подопечным до его первого дня", stageId: "cs1", assigneeParticipantId: "p1", dueDays: 5, required: true },
-        { id: "tt3", type: "task", title: "Еженедельный разбор с подопечным: 30 минут, по записи звонков", stageId: "cs2", assigneeParticipantId: "p1", dueDays: 30, required: true },
-        { id: "tt4", type: "survey", title: "Опрос подопечного: хватает ли поддержки наставника", stageId: "cs2", assigneeParticipantId: "p2", dueDays: 21, required: true },
-        { id: "tt5", type: "task", title: "Оформить доплату за наставничество", stageId: null, assigneeParticipantId: "p2", dueDays: 7, required: true },
-      ],
-    },
-    {
       id: "tpl_sales",
       name: "Адаптация специалиста по недвижимости",
       description: "Основной шаблон сети: от первого дня до первого аванса по своему объекту за 90 дней. Базовый курс УМЦ, скрипты, выход в поле, первый эксклюзив.",
@@ -1858,13 +1794,6 @@ window.SITE_DATA = {
       id: "q_gusev", name: "Павел Гусев", position: "Начальник отдела", department: "Офис «Щелковский» · Вторичный рынок", manager: "Игорь Соловьёв",
       eventType: "transfer", eventTypeLabel: "Перевод", eventDate: "05.08.26",
       reason: "Переведён на руководящую должность, план перехода не назначен", planTypeNeeded: "Внутренний переход",
-    },
-    {
-      // Событие, которого нет в обычной компании, но которое критично для агентства:
-      // действующий специалист взял новичка — значит, ему нужен свой план роли наставника.
-      id: "q_volkov", name: "Дмитрий Волков", position: "Эксперт по недвижимости", department: "Офис «Академический» · Вторичный рынок", manager: "Анна Козлова",
-      eventType: "transfer", eventTypeLabel: "Новая роль", eventDate: "04.08.26",
-      reason: "Назначен наставником новичка, план подготовки наставника не назначен", planTypeNeeded: "Внутренний переход",
     },
     {
       id: "q_belova", name: "Кристина Белова", position: "Специалист по аренде", department: "Офис «Переделкино» · Аренда", manager: "Анна Козлова",
