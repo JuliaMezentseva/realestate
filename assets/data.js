@@ -519,14 +519,15 @@ window.SITE_DATA = {
 
     roleTransition: {
       id: "roleTransition",
-      title: "Подготовка к роли наставника",
+      title: "Адаптация в роли начальника отдела",
       type: "Внутренний переход",
       status: "awaiting_start",
       statusLabel: "Ожидает начала",
-      role: "Наставник",
+      role: "Начальник отдела",
       dateStart: "01.09.26",
       note: "План формируется",
     },
+
   },
 
   // ---------------- Вакансии ----------------
@@ -1175,8 +1176,8 @@ window.SITE_DATA = {
   window.SITE_DATA.templates = [
     {
       id: "tpl_reserve_store_director",
-      name: "Внутренний переход: подготовка наставника",
-      description: "Превращает наставничество из доброй воли в роль с задачами и сроками. Для действующих специалистов, которые берут новичка. Без знакомства с компанией — человек уже в сети.",
+      name: "Наставничество: подготовка наставника",
+      description: "Не ступень карьеры, а роль сверх своей работы: действующий специалист берёт новичка. План превращает наставничество из доброй воли в роль с задачами, сроками и доплатой.",
       status: "active",
       planType: "Внутренний переход",
       durationDays: 30,
@@ -1412,7 +1413,7 @@ window.SITE_DATA = {
     {
       id: "tpl_manager",
       name: "Внутренний переход: начальник отдела",
-      description: "Для специалистов, выросших до руководителя группы. Главная задача перехода — перестать быть только «играющим тренером» и начать отвечать за результат команды.",
+      description: "Первая ступень вверх для специалиста по недвижимости. Главная задача перехода — перестать закрывать план собственными сделками и начать отвечать за результат десяти человек.",
       status: "active",
       planType: "Внутренний переход",
       durationDays: 45,
@@ -1430,10 +1431,64 @@ window.SITE_DATA = {
       goalsDeadlineDays: 14,
       goalsReviewRequired: false,
       goalsReviewDeadlineDays: 7,
-      goals: [],
-      stats: { tasks: 8, files: 4, links: 5, courses: 2, surveys: 2 },
+      goals: [
+        {
+          id: "hdgoal1",
+          title: "Принять отдел: понять, кто где стоит и что с этим делать",
+          description: "Вчерашний коллега становится руководителем. До любых решений нужно собрать реальную картину по каждому человеку и по воронке отдела.",
+          dueDays: 14,
+          subgoals: [
+            { id: "hdsg1", title: "Провести 1:1 с каждым специалистом отдела", description: "", dueDays: 10, reviewer: "Руководитель отделения", materials: [] },
+            { id: "hdsg2", title: "Составить карту отдела: у кого сколько объектов и на какой стадии", description: "", dueDays: 12, reviewer: "Руководитель отделения", materials: [] },
+            { id: "hdsg3", title: "Защитить план отдела на квартал перед руководителем отделения", description: "", dueDays: 14, reviewer: "Руководитель отделения", materials: [] },
+          ],
+        },
+        {
+          id: "hdgoal2",
+          title: "Передать свои объекты и перестать быть играющим тренером",
+          description: "Самый частый провал перехода: новый начальник продолжает вести свои сделки, потому что они понятны и приносят деньги, а отдел остаётся без управления. Цель фиксирует переключение явно и в срок.",
+          dueDays: 30,
+          subgoals: [
+            { id: "hdsg4", title: "Передать личные объекты коллегам или довести их до сделки", description: "", dueDays: 30, reviewer: "Руководитель отделения", materials: [] },
+            { id: "hdsg5", title: "Согласовать и выдержать предельную долю личных сделок в плане отдела", description: "", dueDays: 21, reviewer: "Руководитель отделения", materials: [] },
+            { id: "hdsg6", title: "Провести 4 планёрки отдела самостоятельно", description: "", dueDays: 30, reviewer: "Руководитель отделения", materials: [] },
+          ],
+        },
+        {
+          id: "hdgoal3",
+          title: "Запустить работу с новичками отдела",
+          description: "Доходимость новичков до 90-го дня — главный показатель начальника отдела в агентстве: от неё зависит и план отдела, и стоимость подбора.",
+          dueDays: 45,
+          subgoals: [
+            { id: "hdsg7", title: "Назначить наставника каждому новичку отдела", description: "", dueDays: 21, reviewer: "HR бизнес-партнёр", materials: [] },
+            { id: "hdsg8", title: "Провести все контрольные точки новичков в срок", description: "", dueDays: 45, reviewer: "HR бизнес-партнёр", materials: [] },
+            { id: "hdsg9", title: "Закрыть 2 вакансии специалистов в свой отдел", description: "", dueDays: 45, reviewer: "HR бизнес-партнёр", materials: [] },
+          ],
+        },
+      ],
+      stats: { tasks: 6, files: 3, links: 2, courses: 2, surveys: 2 },
+      checkpoints: [],
+      participants: [
+        { id: "p1", kind: "system", roleId: "func_manager", required: true, isPrimary: true, demoPerson: { name: "Игорь Соловьёв", position: "Руководитель отделения «Таганское»" } },
+        { id: "p2", kind: "system", roleId: "hrbp", required: true, isPrimary: false, demoPerson: { name: "Юлия Степанова", position: "HR бизнес-партнёр" } },
+        { id: "p3", kind: "business", roleId: "buddy", required: true, demoPerson: { name: "Анна Козлова", position: "Начальник отдела, отделение «Таганское»" } },
+        { id: "p4", kind: "system", roleId: "pel", required: false, isPrimary: false, demoPerson: { name: "Елена Петрова", position: "Тренер УМЦ" } },
+      ],
+      checklistStages: [
+        { id: "cs1", title: "Приём отдела" },
+        { id: "cs2", title: "Управление отделом" },
+      ],
+      tasks: [
+        { id: "mt1", type: "task", title: "Принять дела у предыдущего начальника отдела: команда, объекты, договоры", stageId: "cs1", assigneeParticipantId: "p1", dueDays: 7, required: true },
+        { id: "mt2", type: "task", title: "Получить доступы к отчётности и показателям отдела", stageId: "cs1", assigneeParticipantId: "p2", dueDays: 5, required: true },
+        { id: "mt3", type: "task", title: "Пройти курс УМЦ «Управление отделом: от личных сделок к результату команды»", stageId: "cs1", assigneeParticipantId: "p4", dueDays: 14, required: true },
+        { id: "mt4", type: "task", title: "Еженедельная планёрка отдела", stageId: "cs2", assigneeParticipantId: "p1", dueDays: 7, required: true },
+        { id: "mt5", type: "survey", title: "Опрос команды: как прошла смена руководителя", stageId: "cs2", assigneeParticipantId: "p2", dueDays: 30, required: true },
+        { id: "mt6", type: "task", title: "Разбор первого месяца с наставником-руководителем", stageId: "cs2", assigneeParticipantId: "p3", dueDays: 35, required: true },
+      ],
     },
   ];
+
 
   // Каталог опросов для привязки к контрольной точке (аналог "Опросник для руководителей" из ТЗ).
   window.SITE_DATA.surveyCatalog = [
