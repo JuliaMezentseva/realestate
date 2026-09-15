@@ -1514,12 +1514,16 @@ function TasksSectionReal({ tasks, participants, stages, onAddTask, onDeleteTask
 
       {!participants.length && <Alert hue="neutral">Добавьте участников плана на вкладке «Описание», чтобы назначать им задачи</Alert>}
 
-      <TaskGroupCard label="Адаптируемый сотрудник" list={employeeTasks}
-        onAdd={() => setModalFor({ assigneeParticipantId: null, label: "Адаптируемый сотрудник" })} onDelete={onDeleteTask} />
+      {/* Сначала блоки ролей-участников в порядке из «Участников плана», затем
+          «Адаптируемый сотрудник» — это бакет для задач без исполнителя, ему место
+          в конце. В плане агентства недвижимости наверху должен быть наставник:
+          именно его задачи чаще всего не выполняются и их надо видеть первыми. */}
       {groups.map(({ p, list }) => (
         <TaskGroupCard key={p.id} label={roleLabel(p)} list={list}
           onAdd={() => setModalFor({ assigneeParticipantId: p.id, label: roleLabel(p) })} onDelete={onDeleteTask} />
       ))}
+      <TaskGroupCard label="Адаптируемый сотрудник" list={employeeTasks}
+        onAdd={() => setModalFor({ assigneeParticipantId: null, label: "Адаптируемый сотрудник" })} onDelete={onDeleteTask} />
 
       {modalFor && (
         <StandaloneTaskModal target={modalFor} onClose={() => setModalFor(null)}

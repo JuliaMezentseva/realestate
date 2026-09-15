@@ -1234,10 +1234,13 @@ window.SITE_DATA = {
       // ---------------- Участники плана + чек-лист/задачи (ТЗ "Доработки прототипа_Задачи и Роли") ----------------
       // demoPerson/demoUnresolved — только для превью "После назначения" в редакторе шаблона: у роли
       // "Юрист сопровождения" сознательно нет demoPerson, чтобы показать состояние "участник не назначен".
+      // Наставник стоит первым намеренно: в агентстве недвижимости это несущая роль
+      // плана — без его задач новичок не двигается, и именно они чаще всего не
+      // выполняются. «Основной» участник при этом остаётся начальником отдела.
       participants: [
+        { id: "p3", kind: "business", roleId: "mentor", required: true, demoPerson: { name: "Дмитрий Волков", position: "Эксперт по недвижимости" } },
         { id: "p1", kind: "system", roleId: "manager", required: true, isPrimary: true, demoPerson: { name: "Анна Козлова", position: "Начальник отдела" } },
         { id: "p2", kind: "system", roleId: "hrbp", required: true, isPrimary: false, demoPerson: { name: "Юлия Степанова", position: "HR бизнес-партнёр" } },
-        { id: "p3", kind: "business", roleId: "mentor", required: true, demoPerson: { name: "Дмитрий Волков", position: "Эксперт по недвижимости" } },
         { id: "p5", kind: "system", roleId: "pel", required: true, isPrimary: false, demoPerson: { name: "Елена Петрова", position: "Тренер УМЦ" } },
         { id: "p4", kind: "business", roleId: "lawyer", required: false },
       ],
