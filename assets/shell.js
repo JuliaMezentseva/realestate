@@ -142,7 +142,7 @@ const ROLES = [
   { id: "hr", label: "HR-Админ" },
   { id: "employee", label: "Сотрудник" },
   { id: "manager", label: "Руководитель" },
-  { id: "assistant", label: "Помощник" },
+  { id: "assistant", label: "Наставник" },
 ];
 
 function roleHref(base, roleId) {
@@ -177,7 +177,7 @@ function buildNavGroups(role, base) {
     adaptationChildren.push({ id: "candidate-my-adaptation", label: "Моя адаптация", icon: <IconTarget />, href: base + "/candidate/adaptation.html" });
   }
   if (role === "assistant") {
-    // По ТЗ "Моя адаптация" у Помощника не является отдельным экраном (это не его личный
+    // По ТЗ "Моя адаптация" у наставника не является отдельным экраном (это не его личный
     // план), пункт показываем для консистентности структуры меню, но без перехода.
     adaptationChildren.push({ id: "assistant-my-adaptation", label: "Моя адаптация", disabled: true });
     adaptationChildren.push({ id: "assistant-adaptation", label: "Адаптация сотрудников", href: base + "/assistant/team.html" });
@@ -285,7 +285,7 @@ function NavGroup({ group, active }) {
 // Вложенный пункт группы — без иконки, того же масштаба, что и обычный NavItem
 // ("Вакансии"), с отступом слева и выделением текущего пункта скруглённой плашкой.
 // disabled — пункт есть в структуре меню, но пока никуда не ведёт (например, "Моя
-// адаптация" у роли "Помощник" — не отдельный экран).
+// адаптация" у роли "Наставник" — не отдельный экран).
 function NavChildItem({ label, href, selected, disabled }) {
   const [hover, setHover] = React.useState(false);
   if (disabled) {

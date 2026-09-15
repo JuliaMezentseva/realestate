@@ -282,12 +282,12 @@ function RightPanel({ record }) {
 
       {record.helper && (
         <Card bordered>
-          <CollapsibleSection title="Помощники по адаптации">
+          <CollapsibleSection title="Наставники">
             <div className="sk-row sk-gap-3">
               <Avatar src={personPhoto(record.helper)} name={record.helper} size={36} />
               <div className="sk-col" style={{ gap: 2 }}>
                 <div className="sk-label-3">{record.helper}</div>
-                <Tag size="s" hue="neutral" style={{ alignSelf: "flex-start" }}>Помощник</Tag>
+                <Tag size="s" hue="neutral" style={{ alignSelf: "flex-start" }}>Наставник</Tag>
               </div>
             </div>
           </CollapsibleSection>

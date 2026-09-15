@@ -95,15 +95,15 @@ function StatTile({ tile, count, active, onClick }) {
   );
 }
 
-// ---------------- Переключатель "Я руководитель / Я помощник" ----------------
+// ---------------- Переключатель "Я руководитель / Я наставник" ----------------
 function ViewAsSwitch({ showToast }) {
   const [viewAs, setViewAs] = React.useState("manager");
   return (
     <SegmentedControl size="s" active={viewAs}
-      items={[{ id: "manager", label: "Я руководитель" }, { id: "assistant", label: "Я помощник" }]}
+      items={[{ id: "manager", label: "Я руководитель" }, { id: "assistant", label: "Я наставник" }]}
       onChange={(id) => {
         setViewAs(id);
-        if (id === "assistant") showToast("Роль «Помощник» использует этот же экран — появится в следующей итерации");
+        if (id === "assistant") showToast("Роль «Наставник» использует этот же экран — появится в следующей итерации");
       }} />
   );
 }

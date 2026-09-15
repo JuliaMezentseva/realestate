@@ -1037,7 +1037,7 @@ function minDate(a, b) { return a.getTime() < b.getTime() ? a : b; }
 // порядок сроков, заданный в каталоге; на выходе всё ограничено датой окончания плана —
 // у каталожных целей свой типовой срок, который не обязан совпадать с длительностью
 // адаптации конкретного сотрудника. Проверяющего "Наставник" сопоставляем с первым
-// помощником сотрудника (если он назначен), а "Руководитель" и всё остальное — с текущим
+// наставником сотрудника (если он назначен), а "Руководитель" и всё остальное — с текущим
 // руководителем; дальше это можно поправить в дровере подцели, как и любого проверяющего.
 function goalDraftFromCatalog(goal, plan) {
   const start = parseRuShortDate(plan.dateStart);
@@ -1847,7 +1847,7 @@ function SubgoalDrawer({ plan, goal, subgoal, onClose, onChange, onOpenChecklist
   const [drawerTab, setDrawerTab] = React.useState("comments");
   const editable = !plan.employeeStarted;
   // "Подтвердить/вернуть" — действие проверяющего (по умолчанию руководитель, если явно не
-  // назначен другой — например, помощник). "Отметить не выполненной" остаётся у руководителя
+  // назначен другой — например, наставник). "Отметить не выполненной" остаётся у руководителя
   // в любом случае, это его отдельное право по ТЗ, не завязанное на роль проверяющего.
   const isDefaultReviewer = !subgoal.reviewer || subgoal.reviewer === D.manager.name;
   // На финальном ревью плана (plan.status === "on_review") шаги не редактируются —
@@ -2573,7 +2573,7 @@ function RightPanel({ member, plan, overallPct, onOpenCheckpoint, showCheckpoint
             <PersonCard p={D.manager} />
             {D.assistants.length > 0 && (
               <div className="sk-col sk-gap-3">
-                <div className="sk-label-4" style={{ color: "var(--sk-text-tertiary)", textTransform: "uppercase" }}>Помощники</div>
+                <div className="sk-label-4" style={{ color: "var(--sk-text-tertiary)", textTransform: "uppercase" }}>Наставники</div>
                 {D.assistants.map((a, i) => <PersonCard key={i} p={a} />)}
               </div>
             )}

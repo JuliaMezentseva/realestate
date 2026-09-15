@@ -86,7 +86,7 @@ const planTarget = path.resolve(__dirname, "..", "candidate", "plan.html");
     await tick(80);
     console.log("plan.html: вкладка 'FAQ' открывается без падений:", w2.document.querySelector('[role="dialog"]') === null ? "PASS" : "FAIL");
 
-    // Правая панель: участники плана (руководитель/помощники/HR BP), без блока контрольных точек
+    // Правая панель: участники плана (руководитель/наставники/HR BP), без блока контрольных точек
     body = w2.document.body.textContent;
     console.log("plan.html: правая панель 'Участники плана' показана:", body.includes("Участники плана") ? "PASS" : "FAIL");
     console.log("plan.html: блока 'Контрольные точки' нет (у кандидата их не бывает):", !body.includes("Контрольные точки") ? "PASS" : "FAIL");

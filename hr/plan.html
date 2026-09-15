@@ -614,7 +614,7 @@ function RightPanel({ plan, overallPct, checkpoints, onOpenCheckpoint, showCheck
             <PersonCard p={D.manager} />
             {D.assistants.length > 0 && (
               <div className="sk-col sk-gap-3">
-                <div className="sk-label-4" style={{ color: "var(--sk-text-tertiary)", textTransform: "uppercase" }}>Помощники</div>
+                <div className="sk-label-4" style={{ color: "var(--sk-text-tertiary)", textTransform: "uppercase" }}>Наставники</div>
                 {D.assistants.map((a, i) => <PersonCard key={i} p={a} />)}
               </div>
             )}
