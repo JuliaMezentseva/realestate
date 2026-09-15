@@ -265,7 +265,7 @@ function Page() {
               {plan.goals.length === 0 && (
                 <Card>
                   <div className="sk-col sk-gap-3" style={{ alignItems: "center", textAlign: "center", padding: "24px 16px" }}>
-                    <div className="sk-title-5">Сформируйте цель и шаги для её достижения{plan.goalsDeadlineLabel ? " до " + plan.goalsDeadlineLabel : ""}</div>
+                    <div className="sk-title-5">Сформируйте цель и промежуточные результаты{plan.goalsDeadlineLabel ? " до " + plan.goalsDeadlineLabel : ""}</div>
                     <div className="sk-muted" style={{ maxWidth: 440 }}>Цель — это ожидаемый вами измеримый результат, с которым сотрудник должен окончить план адаптации</div>
                     <Button onClick={() => { setNewGoalDraft({ title: "", description: "", dueDate: new Date(2026, 0, 20), subgoals: [] }); setGoalDrawer({ mode: "new" }); }}>+ Создать</Button>
                   </div>
@@ -470,14 +470,6 @@ function ManagerSubgoalRow({ subgoal, goalDueLabel, onOpen }) {
           {showOwnDue && <div className="sk-muted" style={{ font: "var(--sk-label-4-regular)" }}>{ownDue}</div>}
         </div>
       </div>
-      <div className="sk-row sk-gap-2" style={{ flexShrink: 0, alignItems: "center" }}>
-        <span className="sk-row sk-gap-1" style={{
-          height: 26, padding: "0 10px 0 6px", borderRadius: "var(--sk-radius-full)",
-          background: "var(--sk-accent-secondary)", color: "var(--sk-text-accent)", font: "var(--sk-label-4)", whiteSpace: "nowrap",
-        }}>
-          <IconPlusSm size={16} />{"Полезные материалы" + (matCount > 0 ? " " + matCount : "")}
-        </span>
-      </div>
     </div>
   );
 }
@@ -499,9 +491,9 @@ function GoalCreateDrawer({ draft, setDraft, onClose, onCreate, onAddSubgoal }) 
           onChange={(date) => setDraft(d => ({ ...d, dueDate: date }))} />
 
         <div className="sk-col sk-gap-2">
-          <div className="sk-label-3">Шаги для достижения{draft.subgoals.length ? " " + draft.subgoals.length : ""}</div>
+          <div className="sk-label-3">Промежуточные результаты{draft.subgoals.length ? " " + draft.subgoals.length : ""}</div>
           <div className="sk-muted" style={{ font: "var(--sk-label-4-regular)" }}>
-            Разбейте цель на подцели — конкретные шаги, которые помогут сотруднику её достичь. Можно добавить сейчас или позже, после создания цели.
+            Разбейте цель на промежуточные результаты — то, что сотрудник должен показать на пути к ней. Можно добавить сейчас или позже, после создания цели.
           </div>
           {draft.subgoals.map((sg, i) => (
             <div key={i} className="sk-row sk-gap-3" style={{ justifyContent: "space-between", padding: 10, border: "1px solid var(--sk-stroke)", borderRadius: "var(--sk-radius-2)" }}>
@@ -554,7 +546,7 @@ function GoalDrawer({ goal, plan, editable, onClose, onChange, onAddSubgoal, onO
         )}
 
         <div className="sk-col sk-gap-2">
-          <div className="sk-label-3">Шаги для выполнения {done}/{total}</div>
+          <div className="sk-label-3">Промежуточные результаты {done}/{total}</div>
           {goal.subgoals.map(sg => {
             const cfg = SUBGOAL_ICON[sg.status];
             return (
@@ -567,12 +559,6 @@ function GoalDrawer({ goal, plan, editable, onClose, onChange, onAddSubgoal, onO
                   </div>
                 </div>
                 <div className="sk-row sk-gap-2" style={{ alignItems: "center" }}>
-                  <span className="sk-row sk-gap-1 sk-clickable" onClick={() => onOpenSubgoal(sg.id)} style={{
-                    height: 26, padding: "0 10px 0 6px", borderRadius: "var(--sk-radius-full)",
-                    background: "var(--sk-accent-secondary)", color: "var(--sk-text-accent)", font: "var(--sk-label-4)", whiteSpace: "nowrap",
-                  }}>
-                    <IconPlusSm size={16} />{"Полезные материалы" + ((sg.checklistRefs || []).length > 0 ? " " + sg.checklistRefs.length : "")}
-                  </span>
                   {editable && <button className="sk-link-btn" onClick={() => onDeleteSubgoal(sg.id)}><IconTrash size={15} color="var(--sk-icon-secondary)" /></button>}
                 </div>
               </div>
@@ -593,7 +579,7 @@ function SubgoalCreateModal({ onClose, onCreate }) {
   const [reviewer, setReviewer] = React.useState(D.assistantMe.name);
   const canCreate = title.trim().length > 0;
   return (
-    <Modal open title="Шаг для выполнения цели" onClose={onClose} size="m"
+    <Modal open title="Промежуточный результат" onClose={onClose} size="m"
       secondary={<Button mode="secondary" onClick={onClose}>Отменить</Button>}
       primary={<Button disabled={!canCreate} onClick={() => onCreate({ title, description, dueDate, reviewer })}>Добавить</Button>}>
       <div className="sk-col sk-gap-4">

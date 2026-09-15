@@ -363,7 +363,7 @@ function buildPersonalContent(plan, planHref) {
 
   const adaptationRows = [];
   urgent.forEach((it) => adaptationRows.push({
-    kind: "Шаг", title: it.title,
+    kind: "Действие", title: it.title,
     due: "Осталось 2 дня",
     tone: "warn", href: planHref,
   }));

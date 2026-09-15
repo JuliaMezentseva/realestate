@@ -85,7 +85,7 @@ const CHECKPOINT_STEPS = [
 ];
 
 const MIN_TAB_NOTE = "Ваш маршрут адаптации — от первых шагов до погружения в роль. Отмечайте пункты по мере прохождения.";
-const MAX_TAB_NOTE = "Здесь — ваши рабочие цели по плану. Откройте цель, чтобы увидеть шаги и отслеживать прогресс.";
+const MAX_TAB_NOTE = "Здесь — ваши рабочие цели по плану. Откройте цель, чтобы увидеть промежуточные результаты и отслеживать прогресс.";
 
 function goalProgress(goal) {
   const total = goal.subgoals.length;
@@ -299,7 +299,7 @@ function GoalDrawer({ goal, plan, onClose, onOpenSubgoal, onTakeGoal, onToggleMa
           <Button onClick={() => onTakeGoal(goal.id)} style={{ alignSelf: "flex-start" }}>Взять в работу</Button>
         )}
         <div className="sk-col sk-gap-3">
-          <div className="sk-label-3">Шаги</div>
+          <div className="sk-label-3">Промежуточные результаты</div>
           {goal.subgoals.map((sg) => {
             const links = (sg.checklistRefs || []).map((id) => findChecklistItem(plan, id)).filter(Boolean);
             return (
@@ -421,7 +421,7 @@ function SubgoalDrawer({ plan, goal, subgoal, onClose, onSubmit, onAddComment, o
           disabled={!(subgoal.status === "in_progress" || subgoal.status === "returned")} />
 
         {subgoal.status === "not_started" && (
-          <Alert hue="neutral">Сначала возьмите в работу всю цель «{goal.title}» — тогда этот шаг станет доступен для выполнения.</Alert>
+          <Alert hue="neutral">Сначала возьмите в работу всю цель «{goal.title}» — тогда этот промежуточный результат станет доступен для работы.</Alert>
         )}
         {(subgoal.status === "in_progress" || subgoal.status === "returned") && (
           <div className="sk-col sk-gap-2" style={{ position: "sticky", bottom: 0, background: "var(--sk-surface-page)", paddingTop: 8 }}>
@@ -469,7 +469,7 @@ function CheckpointModal({ checkpoint, onClose, onSubmitSurvey }) {
         </div>
 
         <div className="sk-col sk-gap-3" style={{ padding: 16, background: "var(--sk-surface-secondary)", borderRadius: "var(--sk-radius-3)" }}>
-          <div className="sk-label-3">Шаги</div>
+          <div className="sk-label-3">Промежуточные результаты</div>
           <div className="sk-col sk-gap-2">
             {CHECKPOINT_STEPS.map((s, i) => (
               <div key={i} className="sk-row sk-gap-2" style={{ alignItems: "flex-start" }}>
@@ -730,7 +730,7 @@ function Page() {
         subgoals: g.subgoals.map((sg) => sg.status === "not_started" ? { ...sg, status: "in_progress" } : sg),
       }),
     }));
-    showToast("Цель взята в работу — все шаги доступны для выполнения");
+    showToast("Цель взята в работу — все промежуточные результаты доступны");
   }
   function submitSubgoal(goalId, subgoalId) {
     updateSubgoal(goalId, subgoalId, { status: "pending_review" });

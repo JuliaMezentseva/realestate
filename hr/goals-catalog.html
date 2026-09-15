@@ -136,7 +136,7 @@ function StepAssessmentPicker({ templateId, setTemplateId }) {
         <div style={{ paddingTop: 1 }}><Checkbox checked={checked} onChange={toggle} /></div>
         <span className="sk-label-4">Добавить оценочный лист</span>
       </div>
-      <span className="sk-muted" style={{ font: "var(--sk-label-4-regular)", marginLeft: 32 }}>Готовые критерии помогут оценить выполнение шага</span>
+      <span className="sk-muted" style={{ font: "var(--sk-label-4-regular)", marginLeft: 32 }}>Готовые критерии помогут оценить промежуточный результат</span>
       <div style={{ marginLeft: 32, marginTop: 8 }}>
         {checked ? (
           <Select value={templateId} options={templates.map((t) => ({ value: t.id, label: t.title }))} onChange={setTemplateId} />
@@ -164,7 +164,7 @@ function SubgoalFormModal({ initial, onClose, onCreate }) {
   const set = (k) => (v) => setForm((f) => ({ ...f, [k]: v }));
   const canCreate = form.title.trim().length > 0;
   return (
-    <Modal open title="Шаг для выполнения цели" onClose={onClose} size="m" maxHeight="calc(100vh - 64px)"
+    <Modal open title="Промежуточный результат" onClose={onClose} size="m" maxHeight="calc(100vh - 64px)"
       secondary={<Button mode="secondary" onClick={onClose}>Отменить</Button>}
       primary={<Button disabled={!canCreate} onClick={() => onCreate(form)}>{initial ? "Сохранить" : "Добавить"}</Button>}>
       <div className="sk-col sk-gap-4">
@@ -179,9 +179,6 @@ function SubgoalFormModal({ initial, onClose, onCreate }) {
             options={[{ value: "Руководитель", label: "Руководитель" }, { value: "Наставник", label: "Наставник" }]}
             onChange={set("reviewer")} style={{ flex: 1 }} />
         </div>
-        <MaterialsPicker materials={form.materials}
-          onAdd={(item) => set("materials")([...form.materials, item])}
-          onRemove={(id) => set("materials")(form.materials.filter((m) => m.id !== id))} />
         <Divider />
         <div className="sk-col sk-gap-3">
           <span className="sk-label-3" style={{ color: "var(--sk-text-primary)" }}>Проверка выполнения шага</span>
@@ -261,7 +258,7 @@ function GoalCatalogFormDrawer({ initial, onClose, onSave }) {
 
           <Divider />
           <div className="sk-col sk-gap-2">
-            <div className="sk-label-3">Шаги для достижения{form.subgoals.length ? " " + form.subgoals.length : ""}</div>
+            <div className="sk-label-3">Промежуточные результаты{form.subgoals.length ? " " + form.subgoals.length : ""}</div>
             <div className="sk-muted" style={{ font: "var(--sk-label-4-regular)" }}>
               Разбейте цель на подцели — с материалами и проверкой выполнения, если нужно. Можно добавить сейчас или позже.
             </div>
@@ -290,7 +287,7 @@ function GoalCatalogFormDrawer({ initial, onClose, onSave }) {
                 <button className="sk-link-btn" onClick={() => deleteSubgoal(i)}><IconTrash size={15} color="var(--sk-icon-secondary)" /></button>
               </div>
             ))}
-            <button className="sk-link-btn sk-label-3-regular" onClick={() => setSubgoalModal("create")} style={{ alignSelf: "flex-start" }}>+ Добавить шаг</button>
+            <button className="sk-link-btn sk-label-3-regular" onClick={() => setSubgoalModal("create")} style={{ alignSelf: "flex-start" }}>+ Добавить промежуточный результат</button>
           </div>
         </div>
       </Drawer>
@@ -311,9 +308,9 @@ const emptyFilters = { category: "", position: "", level: "" };
 // Склонение "шаг/шага/шагов" для счётчика у названия цели.
 function pluralSteps(n) {
   const mod10 = n % 10, mod100 = n % 100;
-  if (mod10 === 1 && mod100 !== 11) return "шаг";
-  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return "шага";
-  return "шагов";
+  if (mod10 === 1 && mod100 !== 11) return "результат";
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return "результата";
+  return "результатов";
 }
 function pluralTimes(n) {
   const mod10 = n % 10, mod100 = n % 100;
@@ -497,7 +494,7 @@ function GoalCatalogRow({ goal, expanded, onToggle, onEdit, onDuplicate, onArchi
         display: "grid", gridTemplateColumns: GOAL_ROW_GRID, gap: 12, alignItems: "flex-start", padding: "14px 8px",
         background: hover ? "var(--sk-hover-table)" : "transparent",
       }}>
-        <button onClick={(e) => { e.stopPropagation(); onToggle(); }} aria-label="Показать шаги" style={{
+        <button onClick={(e) => { e.stopPropagation(); onToggle(); }} aria-label="Показать промежуточные результаты" style={{
           width: 26, height: 26, marginTop: 3, display: "flex", alignItems: "center", justifyContent: "center", background: "none", border: "none", cursor: "pointer",
           color: "var(--sk-icon-secondary)", transform: expanded ? "rotate(90deg)" : "none", transition: "transform var(--sk-duration) var(--sk-ease)",
         }}><IconChevronRight size={16} /></button>
@@ -540,7 +537,7 @@ function GoalCatalogRow({ goal, expanded, onToggle, onEdit, onDuplicate, onArchi
             </div>
           ) : (
             <div style={{ padding: "8px 0", borderTop: "1px solid var(--sk-stroke)" }}>
-              <span className="sk-muted" style={{ font: "var(--sk-label-4-regular)" }}>Шаги ещё не добавлены</span>
+              <span className="sk-muted" style={{ font: "var(--sk-label-4-regular)" }}>Промежуточные результаты ещё не добавлены</span>
             </div>
           )}
         </div>
@@ -663,7 +660,7 @@ function Page() {
           <div className="sk-col sk-gap-3" style={{ alignItems: "center", textAlign: "center", padding: "24px 16px" }}>
             <div className="sk-title-5">Добавьте первую цель в каталог</div>
             <div className="sk-muted" style={{ maxWidth: 440 }}>
-              Готовая цель с шагами и материалами — чтобы потом не собирать её заново, а выбрать из каталога при создании шаблона
+              Готовая цель с промежуточными результатами — чтобы потом не собирать её заново, а выбрать из каталога при создании шаблона
             </div>
             <Button variant="accent" onClick={() => setFormDrawer("create")}>+ Добавить цель</Button>
           </div>
