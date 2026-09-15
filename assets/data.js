@@ -119,7 +119,7 @@ window.SITE_DATA = {
   plans: {
     onboarding: {
       id: "onboarding",
-      title: "Адаптация специалиста по недвижимости: вторичный рынок",
+      title: "Адаптация специалиста по недвижимости",
       type: "Адаптация",
       status: "in_progress", // in_progress | completed | on_review
       statusLabel: "В процессе",
@@ -754,7 +754,7 @@ window.SITE_DATA = {
     {
       id: "yulia", name: "Юлия Мезенцева", position: "Специалист по недвижимости",
       department: "Отделение «Таганское» · Вторичный рынок",
-      planKind: "Адаптация", planTitle: "Адаптация специалиста по недвижимости: вторичный рынок",
+      planKind: "Адаптация", planTitle: "Адаптация специалиста по недвижимости",
       dateStart: "01.01.26", dateEnd: "25.01.26", daysLeftLabel: "ещё 24 дн.",
       progressPct: 0, progressBasis: "по целям", status: "not_started",
       planId: "newhire",
@@ -772,7 +772,7 @@ window.SITE_DATA = {
       // хардкодим, а считаем из плана, как и у Алексея, чтобы не расходиться.
       id: "svetlana", name: "Светлана Морозова", position: "Специалист по недвижимости",
       department: "Отделение «Таганское» · Вторичный рынок",
-      planKind: "Адаптация", planTitle: "Адаптация специалиста по недвижимости: вторичный рынок",
+      planKind: "Адаптация", planTitle: "Адаптация специалиста по недвижимости",
       dateStart: "01.11.25", dateEnd: "10.03.26", daysLeftLabel: "",
       progressPct: null, progressBasis: "по целям", status: "on_review",
       planId: "finalReview",
@@ -786,7 +786,7 @@ window.SITE_DATA = {
       // а системе поддержки: наставник не включился, встреч с собственниками нет.
       id: "darya", name: "Дарья Белозёрова", position: "Специалист по недвижимости",
       department: "Отделение «Химки» · Вторичный рынок",
-      planKind: "Адаптация", planTitle: "Адаптация специалиста по недвижимости: вторичный рынок",
+      planKind: "Адаптация", planTitle: "Адаптация специалиста по недвижимости",
       dateStart: "01.01.26", dateEnd: "25.01.26", daysLeftLabel: "ещё 24 дн.",
       progressPct: 35, progressBasis: "по целям", status: "in_progress",
       action: null,
@@ -810,7 +810,7 @@ window.SITE_DATA = {
     {
       id: "igor", name: "Игорь Савченко", position: "Специалист по недвижимости",
       department: "Отделение «Химки» · Вторичный рынок",
-      planKind: "Адаптация", planTitle: "Адаптация специалиста по недвижимости: вторичный рынок",
+      planKind: "Адаптация", planTitle: "Адаптация специалиста по недвижимости",
       dateStart: "01.01.26", dateEnd: "25.01.26", daysLeftLabel: "ещё 24 дн.",
       progressPct: 0, progressBasis: "по целям", status: "not_started",
       action: null,
@@ -876,7 +876,7 @@ window.SITE_DATA = {
 
   window.SITE_DATA.plans.newhire = {
     id: "newhire",
-    title: "Адаптация специалиста по недвижимости: вторичный рынок",
+    title: "Адаптация специалиста по недвижимости",
     type: "Адаптация",
     status: "in_progress",
     statusLabel: "В процессе",
@@ -913,7 +913,7 @@ window.SITE_DATA = {
 
   window.SITE_DATA.plans.darya_dev = {
     id: "darya_dev",
-    title: "Адаптация специалиста по недвижимости: вторичный рынок",
+    title: "Адаптация специалиста по недвижимости",
     type: "Адаптация",
     status: "in_progress",
     statusLabel: "В процессе",
@@ -1239,7 +1239,7 @@ window.SITE_DATA = {
     },
     {
       id: "tpl_sales",
-      name: "Адаптация специалиста по недвижимости: вторичный рынок",
+      name: "Адаптация специалиста по недвижимости",
       description: "Основной шаблон сети: от первого дня до первой сделки за 90 дней. Базовый курс УМЦ, скрипты, выход в поле, первый эксклюзив.",
       status: "active", // active | draft | archived
       planType: "Адаптация",
@@ -1388,7 +1388,7 @@ window.SITE_DATA = {
     {
       id: "tpl_old_sales",
       name: "Адаптация агента (версия 2024)",
-      description: "Заменена шаблоном «Адаптация специалиста по недвижимости: вторичный рынок» в январе 2026. Заканчивалась на 30-м дне — ровно перед основным моментом отвала.",
+      description: "Заменена шаблоном «Адаптация специалиста по недвижимости» в январе 2026. Заканчивалась на 30-м дне — ровно перед основным моментом отвала.",
       status: "archived",
       planType: "Адаптация",
       durationDays: 30,
@@ -1718,7 +1718,7 @@ window.SITE_DATA = {
     },
     {
       id: "ap_darya", employeeId: "darya", name: "Дарья Белозёрова", department: "Отделение «Химки» · Вторичный рынок", position: "Специалист по недвижимости",
-      planId: null, planTitle: "Адаптация специалиста по недвижимости: вторичный рынок", planType: "Адаптация", status: "in_progress",
+      planId: null, planTitle: "Адаптация специалиста по недвижимости", planType: "Адаптация", status: "in_progress",
       templateId: "tpl_sales", assignMethod: "Вручную", author: "Ольга Соколова", responsible: "Ольга Соколова",
       manager: "Анна Козлова", helper: "Елена Петрова",
       assignedDate: "01.01.26", plannedEndDate: "25.01.26", actualEndDate: null, lastActivity: "3 мар 26",
@@ -1737,7 +1737,7 @@ window.SITE_DATA = {
     },
     {
       id: "ap_igor", employeeId: "igor", name: "Игорь Савченко", department: "Отделение «Химки» · Вторичный рынок", position: "Специалист по недвижимости",
-      planId: null, planTitle: "Адаптация специалиста по недвижимости: вторичный рынок", planType: "Адаптация", status: "not_started",
+      planId: null, planTitle: "Адаптация специалиста по недвижимости", planType: "Адаптация", status: "not_started",
       templateId: "tpl_sales", assignMethod: "Очередь назначения", author: "Ольга Соколова", responsible: "Ольга Соколова",
       manager: "Анна Козлова", helper: null,
       assignedDate: "01.01.26", plannedEndDate: "25.01.26", actualEndDate: null, lastActivity: "—",
@@ -1759,7 +1759,7 @@ window.SITE_DATA = {
     },
     {
       id: "ap_yulia", employeeId: "yulia", name: "Юлия Мезенцева", department: "Отделение «Таганское» · Вторичный рынок", position: "Специалист по недвижимости",
-      planId: "onboarding", planTitle: "Адаптация специалиста по недвижимости: вторичный рынок", planType: "Адаптация", status: "in_progress",
+      planId: "onboarding", planTitle: "Адаптация специалиста по недвижимости", planType: "Адаптация", status: "in_progress",
       templateId: "tpl_sales", assignMethod: "Вручную", author: "Ольга Соколова", responsible: "Ольга Соколова",
       manager: "Анна Козлова", helper: null,
       assignedDate: "01.03.26", plannedEndDate: "31.05.26", actualEndDate: null, lastActivity: "5 апр 26",
@@ -1789,7 +1789,7 @@ window.SITE_DATA = {
       // Отменённые планы в одном и том же отделении — видимый сигнал, что проблема не в
       // людях, а в офисе: план один на сеть, а исполняется он в «Химках» иначе, чем на Таганке.
       id: "ap_kristina", employeeId: null, name: "Кристина Белова", department: "Отделение «Химки» · Вторичный рынок", position: "Специалист по недвижимости",
-      planId: null, planTitle: "Адаптация специалиста по недвижимости: вторичный рынок", planType: "Адаптация", status: "cancelled",
+      planId: null, planTitle: "Адаптация специалиста по недвижимости", planType: "Адаптация", status: "cancelled",
       templateId: "tpl_sales", assignMethod: "Очередь назначения", author: "Ольга Соколова", responsible: "Ольга Соколова",
       manager: "Анна Козлова", helper: null,
       assignedDate: "15.01.26", plannedEndDate: "15.04.26", actualEndDate: "08.02.26", lastActivity: "8 фев 26",
@@ -1871,7 +1871,7 @@ window.SITE_DATA = {
       id: "draft1",
       title: "Адаптация специалиста по загородной недвижимости",
       templateId: "tpl_sales",
-      templateName: "Адаптация специалиста по недвижимости: вторичный рынок",
+      templateName: "Адаптация специалиста по недвижимости",
       type: "Адаптация",
       createdAt: "15.01.26, 15:44",
       savedAtLabel: "Сохранено в 12:44",
