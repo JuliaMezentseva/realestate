@@ -487,7 +487,7 @@ window.SITE_DATA = {
 
     preboarding: {
       id: "preboarding",
-      title: "Подготовка к выходу в отделение",
+      title: "Подготовка к первому дню",
       type: "Пребординг",
       status: "completed",
       statusLabel: "Завершён",
@@ -819,7 +819,7 @@ window.SITE_DATA = {
     {
       id: "marina", name: "Марина Орлова", position: "Специалист по аренде",
       department: "Отделение «Марьино» · Аренда",
-      planKind: "Пребординг", planTitle: "Подготовка к выходу в отделение",
+      planKind: "Пребординг", planTitle: "Подготовка к первому дню",
       dateStart: "01.01.26", dateEnd: "25.01.26", daysLeftLabel: "",
       progressPct: 100, progressBasis: "по чек-листу", status: "completed",
       action: null,
@@ -837,7 +837,7 @@ window.SITE_DATA = {
     { id: "a5", type: "goal", title: "Создать цели в плане", employeeId: "igor", employee: "Игорь Савченко", due: "20 мар 26", dueSort: "2026-03-20" },
     { id: "a7", type: "review", title: "Проверить план на финальное review", employeeId: "marina", employee: "Марина Орлова", due: "25 апр 26", dueSort: "2026-04-25" },
 
-    { id: "a8", type: "approval", title: "Согласовать план адаптации «Подготовка к выходу в отделение»", employeeId: "marina", employee: "Марина Орлова", doneAt: "5 мар 26, 09:10", doneBucket: "month" },
+    { id: "a8", type: "approval", title: "Согласовать план адаптации «Подготовка к первому дню»", employeeId: "marina", employee: "Марина Орлова", doneAt: "5 мар 26, 09:10", doneBucket: "month" },
     { id: "a3", type: "subgoal", title: "Подтвердить подцель «Провести первый показ объекта под наблюдением наставника»", employeeId: "alexey", employee: "Алексей Ковалев", doneAt: "18 янв 26, 16:15", doneBucket: "other" },
     { id: "a9", type: "subgoal", title: "Подтвердить подцель «Отработать скрипт звонка собственнику в ролевом диалоге»", employeeId: "alexey", employee: "Алексей Ковалев", doneAt: "10 янв 26, 11:15", doneBucket: "other" },
     { id: "a10", type: "task", title: "Согласовать условия стажировки с руководителем отделения", employeeId: "alexey", employee: "Алексей Ковалев", doneAt: "1 мар 26, 10:00", doneBucket: "other" },
@@ -1317,7 +1317,7 @@ window.SITE_DATA = {
     },
     {
       id: "tpl_support",
-      name: "Пребординг: подготовка к выходу в отделение",
+      name: "Пребординг: подготовка к первому дню",
       description: "Неделя между офером и первым днём — самый частый момент потери новичка. План доводит человека до первого дня.",
       status: "active",
       planType: "Пребординг",
@@ -1482,7 +1482,7 @@ window.SITE_DATA = {
   window.SITE_DATA.positionsCatalog = [
     "Специалист по недвижимости", "Эксперт по недвижимости", "Консультант по новостройкам",
     "Специалист по загородной недвижимости", "Специалист по аренде", "Специалист по коммерческой недвижимости",
-    "Наставник", "Начальник отдела", "Руководитель отделения",
+    "Начальник отдела", "Руководитель отделения",
     "Ипотечный брокер", "Юрист сопровождения сделок",
     "Тренер УМЦ", "Методист УМЦ",
     "Администратор отделения", "Рекрутер", "HR бизнес-партнёр",
@@ -1613,7 +1613,7 @@ window.SITE_DATA = {
     {
       id: "gc_mentor_first", title: "Довести первого подопечного до назначенных встреч",
       description: "Наставничество измеряется результатом новичка, а не потраченными часами. Цель делает роль наставника видимой и проверяемой.",
-      category: "Обучение и развитие", department: "Учебно-методический центр", positions: ["Наставник", "Эксперт по недвижимости"], planType: "Внутренний переход", level: "Senior", tags: ["наставничество"], dueDays: 30,
+      category: "Обучение и развитие", department: "Учебно-методический центр", positions: ["Эксперт по недвижимости", "Специалист по недвижимости"], planType: "Внутренний переход", level: "Senior", tags: ["наставничество"], dueDays: 30,
       author: "Юлия Степанова", createdAt: "22.08.26", usageCount: 12,
       subgoals: [
         { id: "gcsg_mn_1", title: "Пройти курс УМЦ «Наставник: как учить в поле»", description: "", dueDays: 7, reviewer: "Тренер УМЦ", materials: [], templateId: null },
@@ -1747,7 +1747,7 @@ window.SITE_DATA = {
     },
     {
       id: "ap_marina", employeeId: "marina", name: "Марина Орлова", department: "Отделение «Марьино» · Аренда", position: "Специалист по аренде",
-      planId: null, planTitle: "Подготовка к выходу в отделение", planType: "Пребординг", status: "completed",
+      planId: null, planTitle: "Подготовка к первому дню", planType: "Пребординг", status: "completed",
       templateId: "tpl_support", assignMethod: "Создан с нуля", author: "Ольга Соколова", responsible: "Ольга Соколова",
       manager: "Анна Козлова", helper: null,
       assignedDate: "01.01.26", plannedEndDate: "25.01.26", actualEndDate: "20.01.26", lastActivity: "20 янв 26",
@@ -1802,7 +1802,7 @@ window.SITE_DATA = {
     },
     {
       id: "ap_artem", employeeId: null, name: "Артём Волков", department: "Отделение «Бабушкинское» · Вторичный рынок", position: "Специалист по недвижимости",
-      planId: null, planTitle: "Подготовка к выходу в отделение", planType: "Пребординг", status: "cancelled",
+      planId: null, planTitle: "Подготовка к первому дню", planType: "Пребординг", status: "cancelled",
       templateId: "tpl_support", assignMethod: "Автособытие", author: "Юлия Степанова", responsible: "Юлия Степанова",
       manager: "Анна Козлова", helper: null,
       assignedDate: "10.02.26", plannedEndDate: "24.02.26", actualEndDate: "15.02.26", lastActivity: "15 фев 26",
@@ -1836,7 +1836,7 @@ window.SITE_DATA = {
     {
       // Событие, которого нет в обычной компании, но которое критично для агентства:
       // действующий специалист взял новичка — значит, ему нужен свой план роли наставника.
-      id: "q_volkov", name: "Дмитрий Волков", position: "Наставник", department: "Отделение «Таганское» · Вторичный рынок", manager: "Анна Козлова",
+      id: "q_volkov", name: "Дмитрий Волков", position: "Эксперт по недвижимости", department: "Отделение «Таганское» · Вторичный рынок", manager: "Анна Козлова",
       eventType: "transfer", eventTypeLabel: "Новая роль", eventDate: "04.08.26",
       reason: "Назначен наставником новичка, план подготовки наставника не назначен", planTypeNeeded: "Внутренний переход",
     },
@@ -1992,7 +1992,7 @@ window.SITE_DATA = {
   window.SITE_DATA.candidatePerson = { name: "Максим Орлов", position: "Кандидат · Специалист по недвижимости" };
   window.SITE_DATA.plans.candidatePreboarding = {
     id: "candidatePreboarding",
-    title: "Подготовка к выходу в отделение",
+    title: "Подготовка к первому дню",
     type: "Пребординг",
     status: "in_progress",
     statusLabel: "В процессе",
