@@ -2574,16 +2574,19 @@ function RightPanel({ member, plan, overallPct, onOpenCheckpoint, showCheckpoint
           </div>
           <Divider />
           <div className="sk-col sk-gap-4">
-            <div className="sk-label-4" style={{ color: "var(--sk-text-tertiary)", textTransform: "uppercase" }}>Участники плана</div>
-            <PersonCard p={D.manager} />
+            <div className="sk-label-4" style={{ color: "var(--sk-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>Участники плана</div>
+            <div className="sk-col sk-gap-3">
+              <div className="sk-label-4" style={{ color: "var(--sk-text-primary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>Руководитель</div>
+              <PersonCard p={D.manager} />
+            </div>
             {D.assistants.length > 0 && (
               <div className="sk-col sk-gap-3">
-                <div className="sk-label-4" style={{ color: "var(--sk-text-tertiary)", textTransform: "uppercase" }}>Наставники</div>
+                <div className="sk-label-4" style={{ color: "var(--sk-text-primary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>Наставники</div>
                 {D.assistants.map((a, i) => <PersonCard key={i} p={a} />)}
               </div>
             )}
             <div className="sk-col sk-gap-3">
-              <div className="sk-label-4" style={{ color: "var(--sk-text-tertiary)", textTransform: "uppercase" }}>HR BP</div>
+              <div className="sk-label-4" style={{ color: "var(--sk-text-primary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>HR BP</div>
               <PersonCard p={D.hrbp} />
             </div>
           </div>
